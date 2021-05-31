@@ -16,9 +16,24 @@
   <body>
     <%- include('partials/_header') %>
     <h1>Donuts</h1>
-    <!-- <% for (let donut of donuts){ %>
-    <%= donut.name %>
-    <% } %> -->
+
+    <div class="items mt-20">
+
+    <% for(let donut of donuts) { %>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= donut.thumbnail_photo_url %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= donut.name %></h5>
+          <p class="card-text"><%= donut.description %></p>
+          <!-- <a href="#" class="btn btn-primary"><%= donut.description %></a> -->
+        </div>
+        <div class="card-footer">
+          <%= donut.price %>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
 
     <table class="table">
       <thead>
@@ -32,7 +47,7 @@
       <tbody>
         <% for(let donut of donuts) { %>
           <tr>
-            <td><img width='300px' src='<%= donut.thumbnail_photo_url %>'></td>
+            <td><img width='300px' height="300px" src='<%= donut.thumbnail_photo_url %>'></td>
             <td><%= donut.name %></td>
             <td><%= donut.description %></td>
             <td><%= donut.price %></td>
