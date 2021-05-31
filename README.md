@@ -41,3 +41,11 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+
+## Notes
+
+The main sources for the above information for are:
+https://www.doughnutplant.com/ (Donut name and description)
+https://www.mockaroo.com/ (Dummy user data)
+https://www.pexels.com/ 
+https://randomuser.me/ (Dummy users photo)

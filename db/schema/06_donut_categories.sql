@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS donut_categories CASCADE;
+CREATE TABLE donut_categories (
+  id SERIAL PRIMARY KEY NOT NULL,
+  catagory_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+  donut_id INTEGER REFERENCES donuts(id) ON DELETE CASCADE
+);

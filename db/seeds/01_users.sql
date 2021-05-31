@@ -1,3 +1,16 @@
--- Users table seeds here (Example)
-INSERT INTO users (name) VALUES ('Alice');
-INSERT INTO users (name) VALUES ('Kira');
+INSERT INTO users (name, email, phone, password, profile_photo_url, created_at)
+VALUES ('Shelley Gherarducci', 'sgherarducci0@gnu.org', '7275111907', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/76.jpg', '11/8/2020'),
+('Karyl Crossgrove', 'kcrossgrove1@skyrock.com', '5967226889', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/32.jpg', '4/19/2021'),
+('Mordy Blaxter', 'mblaxter2@vimeo.com', '3372856544', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/50.jpg', '5/12/2021'),
+('Rosemonde Laimable', 'rlaimable3@nba.com', '3241718079', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/49.jpg', '5/15/2020'),
+('Kanya Blomefield', 'kblomefield4@comsenz.com', '8366886733', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/30.jpg', '5/12/2020'),
+('Chan Fahy', 'cfahy5@epa.gov', '8459948819', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/4.jpg', '6/19/2020'),
+('Terrell Mallam', 'tmallam6@cbc.ca', '6611437530', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/62.jpg',  '12/30/2020'),
+('Thedric Le Moucheux', 'tle7@shop-pro.jp', '9804373303', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/2.jpg', '1/14/2021'),
+('Xerxes Tansly', 'xtansly8@irs.gov', '8884999910', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/73.jpg', '12/5/2020'),
+('Constance Martynikhin', 'cmartynikhin9@economist.com', '2518501367', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/42.jpg', '1/16/2021'),
+('Guthrey Linke', 'glinkea@mysql.com', '3995717497', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/33.jpg',  '7/20/2020'),
+('Chucho Antczak', 'cantczakb@state.gov', '7037679942', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/59.jpg', '4/28/2021'),
+('Trescha Knuckles', 'tknucklesc@ca.gov', '2183008430', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/31.jpg',  '11/30/2020'),
+('Artur Eacott', 'aeacottd@intel.com', '1079254337', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/men/36.jpg',  '6/16/2020'),
+('Susette McHale', 'smchalee@columbia.edu', '6541848250', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/13.jpg', '5/29/2020');
