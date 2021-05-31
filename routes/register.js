@@ -3,8 +3,13 @@ const router = express.Router();
 
 module.exports = () => {
   router.get('/', (req, res) => {
-    // add if statement (if user_id cookie is present)
     res.render('register');
+  });
+  router.post('/', (req, res) => {
+    // add cookies here
+    const user = req.body;
+    console.log('THIS IS USER!!!!', user);
+    res.redirect('/menu');
   });
   return router;
 };
