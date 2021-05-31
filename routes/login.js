@@ -1,14 +1,37 @@
-const express = require('express');
+const { getUserWithEmail } = require("../database");
+const express = require("express");
 const router = express.Router();
 
-module.exports = () => {
-  router.get('/', (req, res) => {
-    // add if statement (if user_id cookie is present) ---> redirect to /menu
-    res.render('login');
+const login = function (email, password) {
+  return getUserWithEmail(email).then((user) => {
+    if (password === user.password) {
+      return user;
+    }
+    return null;
   });
-  router.post('/', (req, res) => {
+};
+
+module.exports = () => {
+  router.get("/", (req, res) => {
+    // add if statement (if user_id cookie is present) ---> redirect to /menu
+    res.render("login");
+  });
+  
+  router.post("/", (req, res) => {
     // add cookies here
-    res.redirect('/menu');
+    const { email, password } = req.body;
+    login(email, password)
+      .then((user) => {
+        if (!user) {
+          console.log("Line 25: ",user);
+          res.send({ error: "error" });
+          return;
+        }
+        req.session.userId = user.id;
+        res.redirect("/menu");
+        // res.send({user: {name: user.name, email: user.email, id: user.id}});
+      })
+      .catch((e) => res.send(e));
   });
   return router;
 };

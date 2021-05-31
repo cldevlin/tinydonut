@@ -1,4 +1,4 @@
-INSERT INTO users (name, email, phone, password, profile_photo_url, created_at)
+INSERT INTO users (name, email, phone, password, photo_url, created_at)
 VALUES ('Shelley Gherarducci', 'sgherarducci0@gnu.org', '7275111907', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/76.jpg', '11/8/2020'),
 ('Karyl Crossgrove', 'kcrossgrove1@skyrock.com', '5967226889', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/32.jpg', '4/19/2021'),
 ('Mordy Blaxter', 'mblaxter2@vimeo.com', '3372856544', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.', 'https://randomuser.me/api/portraits/women/50.jpg', '5/12/2021'),

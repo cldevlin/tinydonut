@@ -5,6 +5,6 @@ CREATE TABLE users (
   email VARCHAR(255) NOT NULL,
   phone VARCHAR(10) NOT NULL,
   password VARCHAR(255) NOT NULL,
-  profile_photo_url VARCHAR(255) NOT NULL,
+  photo_url VARCHAR(255) DEFAULT NULL,
   created_at DATE NOT NULL
 );

@@ -8,9 +8,15 @@ const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
+var cookieSession = require('cookie-session');
+
 const app = express();
 const morgan = require('morgan');
 
+app.use(cookieSession({
+  name: 'session',
+  keys: ['key1', 'key2']
+}));
 
 
 // PG database client/connection setup

@@ -1,3 +1,4 @@
+const {addUser} = require('../database');
 const express = require('express');
 const router = express.Router();
 
@@ -7,8 +8,14 @@ module.exports = () => {
   });
   router.post('/', (req, res) => {
     // add cookies here
-    const user = req.body;
-    console.log('THIS IS USER!!!!', user);
+    const newUser = req.body;
+
+    addUser(newUser)
+    .then((user) => {
+      req.session.user_id = user.id;
+    });
+
+    //console.log('THIS IS USER!!!!', newUser);
     res.redirect('/menu');
   });
   return router;
