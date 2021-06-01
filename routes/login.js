@@ -14,6 +14,9 @@ const login = function (email, password) {
 module.exports = () => {
   router.get("/", (req, res) => {
     // add if statement (if user_id cookie is present) ---> redirect to /menu
+    if (req.session.user_id) {
+      return res.redirect('/menu');
+    }
     res.render("login");
   });
 
@@ -24,11 +27,11 @@ module.exports = () => {
       .then((user) => {
         console.log("LINE 25 -------->", user);
         if (!user) {
-          console.log("Line 25: ",user);
+          console.log("Line 25: ", user);
           res.send({ error: "error" });
           return;
         }
-        req.session.userId = user.id;
+        req.session.user_id = user.id;
         res.redirect("/menu");
         // res.send({user: {name: user.name, email: user.email, id: user.id}});
       })
