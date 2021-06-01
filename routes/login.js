@@ -4,16 +4,16 @@ const router = express.Router();
 
 const login = function (email, password) {
   return getUserWithEmail(email).then((user) => {
-    if (password === user.password) {
+    if (!user || password !== user.password) {
+      return null;
+    } else {
       return user;
     }
-    return null;
   });
 };
 
 module.exports = () => {
   router.get("/", (req, res) => {
-    // add if statement (if user_id cookie is present) ---> redirect to /menu
     if (req.session.user_id) {
       return res.redirect('/menu');
     }
@@ -21,19 +21,16 @@ module.exports = () => {
   });
 
   router.post("/", (req, res) => {
-    // add cookies here
     const { email, password } = req.body;
     login(email, password)
       .then((user) => {
         console.log("LINE 25 -------->", user);
         if (!user) {
-          console.log("Line 25: ", user);
-          res.send({ error: "error" });
-          return;
+          res.statusCode = 403;
+          return res.send("<html><h1>Error: Wrong password</h1></html>");
         }
         req.session.user_id = user.id;
         res.redirect("/menu");
-        // res.send({user: {name: user.name, email: user.email, id: user.id}});
       })
       .catch((e) => res.send(e));
   });

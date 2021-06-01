@@ -1,4 +1,4 @@
-const {addUser} = require('../database');
+const { addUser } = require('../database');
 const express = require('express');
 const router = express.Router();
 
@@ -9,6 +9,12 @@ module.exports = () => {
   router.post('/', (req, res) => {
     // add cookies here
     const newUser = req.body;
+    console.log("req.body-------- ", req.body);
+
+    if (!newUser.name || !newUser.email || !newUser.phone || !newUser.password) {
+      res.statusCode = 403;
+      return res.send("<html><h1>Error: Please fill out all fields</h1></html>");
+    }
 
     addUser(newUser)
       .then((user) => {
