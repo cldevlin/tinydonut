@@ -16,7 +16,7 @@ module.exports = (db) => {
       .then((data) => {
         const donuts = data.rows;
         // res.json({ donuts });
-        const templateVars = { donuts };
+        const templateVars = { donuts, user: req.session.user_id };  // STRETCH: use jquery to pass user object into templateVars
         res.render("menu", templateVars);
       })
       .catch((err) => {
