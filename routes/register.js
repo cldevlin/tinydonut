@@ -12,6 +12,7 @@ module.exports = () => {
 
     addUser(newUser)
       .then((user) => {
+        // eslint-disable-next-line camelcase
         req.session.user_id = user.id;
         res.redirect('/menu');
       })

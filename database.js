@@ -18,10 +18,10 @@ const pool = new Pool({
 const getUserWithEmail = function(email) {
   const queryString = `SELECT id, name, email, password FROM users WHERE email = $1;`;
   return pool.query(queryString, [email])
-  .then((result) => {
-    return result.rows[0];
-  });
-}
+    .then((result) => {
+      return result.rows[0];
+    });
+};
 exports.getUserWithEmail = getUserWithEmail;
 
 /**
@@ -32,10 +32,10 @@ exports.getUserWithEmail = getUserWithEmail;
 const addUser =  function(user) {
   const queryString = `INSERT INTO users (name, email, phone, password, photo_url, created_at) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *;`;
   return pool.query(queryString, [user.name, user.email, user.phone, user.password, ''])
-  .then((result) => {
-    return result.rows[0];
-  });
-}
+    .then((result) => {
+      return result.rows[0];
+    });
+};
 exports.addUser = addUser;
 
 // /// Reservations
