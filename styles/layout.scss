@@ -1,17 +1,11 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #eee;
 
   h1 {
     color: #244751;
   }
-}
-
-.items {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
 }
 
 .login {
@@ -27,3 +21,14 @@ body {
   align-items: center;
 }
 
+.inner {
+  overflow: hidden;
+}
+
+.inner img {
+  transition: all 1.5s;
+}
+
+.inner:hover img {
+  transform: scale(1.5);
+}
