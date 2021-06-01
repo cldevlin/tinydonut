@@ -9,7 +9,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const cookieSession = require('cookie-session');
-
+const http = require('http');
 const app = express();
 const morgan = require('morgan');
 
@@ -47,6 +47,7 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
+const smsRoute = require("./routes/recieve-sms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -60,6 +61,8 @@ app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/api/widgets", widgetsRoutes(db));
 
+app.use("/sms", smsRoute(db));
+
 // Note: mount other resources here, using the same pattern above
 
 
@@ -70,6 +73,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Example app listening on port ${PORT}`);
+// });
+
+http.createServer(app).listen(PORT, () => console.log(`Example app listening on port ${PORT}`));
