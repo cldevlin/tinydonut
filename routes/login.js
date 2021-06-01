@@ -16,12 +16,13 @@ module.exports = () => {
     // add if statement (if user_id cookie is present) ---> redirect to /menu
     res.render("login");
   });
-  
+
   router.post("/", (req, res) => {
     // add cookies here
     const { email, password } = req.body;
     login(email, password)
       .then((user) => {
+        console.log("LINE 25 -------->", user);
         if (!user) {
           console.log("Line 25: ",user);
           res.send({ error: "error" });
