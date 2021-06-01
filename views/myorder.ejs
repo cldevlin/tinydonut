@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Hold on tight!</title>
   <img src="" alt="">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -17,7 +17,6 @@
 
   <!-- External JS -->
 
-
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="type/javascript" src="/scripts/client.js"></script>
@@ -25,33 +24,6 @@
 
 <body>
   <%- include('partials/_header') %>
-    <h1>Donuts</h1>
-
-    <div class="items mt-20">
-
-      <% for(let donut of donuts) { %>
-        <div class="card" style="width: 18rem;">
-          <img src="<%= donut.thumbnail_photo_url %>" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">
-              <%= donut.name %>
-            </h5>
-            <p class="card-text">
-              <%= donut.description %>
-            </p>
-          </div>
-          <div class="card-footer d-flex flex-row justify-content-between align-items-center">
-            <%= donut.price %>
-              <form action="/menu" method="POST" id='counter'>
-                <input type="number" name="counter">
-                <button class="btn btn-primary">Add to cart</button>
-              </form>
-          </div>
-        </div>
-        <% } %>
-    </div>
-
-
 
 
     <!-- Bootstrap JS -->

@@ -1,14 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-// $(document).ready(function() {
-//   if ($(".new-tweet").prop("clientHeight") > 0) {
-//     $(".new-tweet").slideUp("fast", "linear");
-//   } else {
-//     $(".new-tweet").slideDown("fast", "linear");
-//     $("#tweet-text").focus();
-//   }
-// }
 
 module.exports = (db) => {
   router.get("/", (req, res) => {

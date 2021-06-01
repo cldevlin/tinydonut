@@ -20,7 +20,7 @@ module.exports = () => {
   });
 
   router.get("/", (req, res) => {
-    res.send(reply);
+    res.render('myorder');
   });
   return router;
 };
