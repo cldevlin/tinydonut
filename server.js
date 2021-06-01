@@ -8,10 +8,9 @@ const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
-var cookieSession = require('cookie-session');
-
 const app = express();
 const morgan = require('morgan');
+const cookieSession = require('cookie-session');
 
 app.use(cookieSession({
   name: 'session',
@@ -51,11 +50,8 @@ const registerRoute = require("./routes/register");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-
 app.use("/api/menu", menuRoutes(db));
 app.use("/menu", menuRoutes(db));
-
-
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/api/widgets", widgetsRoutes(db));

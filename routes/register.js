@@ -9,13 +9,13 @@ module.exports = () => {
   router.post('/', (req, res) => {
     // add cookies here
     const newUser = req.body;
-
+    console.log(req.session);
     addUser(newUser)
-    .then((user) => {
-      req.session.user_id = user.id;
-    });
+      .then((user) => {
+        console.log("COOKIE OBJECT ------------>>>", req.session.user_id);
+        req.session.user_id = user.id;
+      });
 
-    //console.log('THIS IS USER!!!!', newUser);
     res.redirect('/menu');
   });
   return router;
