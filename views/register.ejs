@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Register</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -10,35 +10,40 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/register.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <div class="login">
-    <form action="/register" method="POST">
-      <div class="mb-3">
-        <label for="exampleInputName1" class="form-label">Name</label>
-        <input type="text" class="form-control" name="name" id="exampleInputName1" aria-describedby="nameHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPhone1" class="form-label">Phone Number</label>
-        <input type="tel" class="form-control" name="phone" id="exampleInputPhone1" aria-describedby="phoneHelp"
-          placeholder="+1(234)567-8910">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-      </div>
-      <button type="submit" class="btn btn-primary">Register</button>
-    </form>
-
+  <div class="logo">
+    <img class="image-thumbnail" src="../public/images/donut-logo.png" alt="">
   </div>
+
+  <form class="form" action="/register" method="POST">
+    <div class="inputs">
+      <div class="mb-3">
+        <!-- <label for="exampleInputName1" class="form-label">Name</label> -->
+        <input type="text" name="name" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Name">
+      </div>
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+        <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+      </div>
+      <div class="mb-3">
+        <!-- <label for="exampleInputPhone1" class="form-label">Phone Number</label> -->
+        <input type="tel" name="phone" id="exampleInputPhone1" aria-describedby="phoneHelp" placeholder="Phone number">
+      </div>
+      <div class="mb-3">
+        <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+        <input type="password" name="password" id="exampleInputPassword1" placeholder="Password">
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Register</button>
+  </form>
+
+
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -50,4 +55,5 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 </body>
+
 </html>

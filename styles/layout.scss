@@ -1,5 +1,8 @@
 // See: https://sass-lang.com/
 
+@import 'header';
+
+
 body {
   background-color: #EEE;
 
@@ -12,6 +15,7 @@ body {
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   padding: 20px;
 }
 
 .login {
