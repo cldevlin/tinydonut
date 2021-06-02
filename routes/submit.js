@@ -1,11 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const twilio = require('twilio');
-// const client = require('twilio')(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
-const sendToRestaurant = require('../send-sms');
-
-
-
+const { sendToRestaurant } = require('../send-sms');
 
 module.exports = (db) => {
   router.get("/", (req, res) => {

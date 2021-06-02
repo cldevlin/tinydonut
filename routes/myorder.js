@@ -1,32 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const twilio = require('twilio');
-const client = require('twilio')(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
-const sendToRestaurant = require('../send-sms');
+const { sendReply, orderReady } = require('../send-sms');
 
 
 
 
 module.exports = (db) => {
 
-  const sendReply = (reply, number) => {
-    client.messages.create({
-      to: `+1${number}`,
-      from: '+16474931524',
-      body: `Your order will be ready in ${reply} minutes!`
-    });
-  };
-
-  const orderReady = (number) => {
-    client.messages.create({
-      to: `+1${number}`,
-      from: '+16474931524',
-      body: `Your order is ready for pickup`
-    });
-  };
-  let reply;
   router.post('/', twilio.webhook({ validate: false }), function (req, res) {
-    reply = req.body.Body;
+    let reply = req.body.Body;
     db.query(`UPDATE orders SET order_status=1, waiting_time=${reply} WHERE id=4;`);
     db.query(`SELECT phone FROM users WHERE id=16;`)
       .then(data => {
