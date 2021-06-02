@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Menu Page</title>
+  <title>Cart Page</title>
   <img src="" alt="">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
@@ -30,32 +30,57 @@
 
 <body>
   <%- include('partials/_header') %>
-    <h1>Donuts</h1>
+  <% console.log('This is the current user: ',session.user) %>
 
+  <h1>Order Summary</h1>
 
     <section class="container">
-      <div class="row gap-3">
-        <% for(let donut of donuts) { %>
-        <div class="col-md-4 gap-3">
-          <div class="card h-100">
-            <div class="inner">
-              <img src="<%= donut.thumbnail_photo_url %>" class="rounded mx-auto d-block card-img-top" alt="<%= donut.name %>">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= donut.name %></h5>
-              <p class="card-text"><%= donut.description %></p>
-            </div>
-            <div class="card-footer d-flex justify-content-between">
-
-              <p class="card-text"><em>$<%= donut.price/100 %></em></p>
-              <button data-donut="<%= JSON.stringify(donut) %>" type="button" class="add-to-cart btn btn-primary">Add</button>
-            </div>
-          </div>
-        </div>
-        <% } %>
-      </div>
+      <% if(!session.cart) { %>
+        <img class="img-fluid" src="../public/images/empty_cart.png" alt="Your Cart Is Empty">
+      <% } else {%>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Donut(s)</th>
+            <th class="text-right" scope="col">Quantity</th>
+            <th class="text-right" scope="col">Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(const donut of Object.values(session.cart.items)) { %>
+          <tr>
+            <td><%= donut.item.name %></td>
+            <td class="text-right"><%= donut.qty %></td>
+            <td class="text-right">$<%= ((donut.item.price * donut.qty) / 100).toFixed(2); %></td>
+          </tr>
+          <% } %>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2" class="text-right"><strong>Sub Total</strong></td>
+            <td class="text-right"><strong>$<%= (session.cart.totalPrice / 100).toFixed(2); %></strong></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-right"><strong>Tax</strong></td>
+            <td class="text-right"><strong>$<%= (session.cart.taxes / 100).toFixed(2); %></strong></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-right"><strong>Grand Total</strong></td>
+            <td class="text-right"><strong>$<%= ((session.cart.taxes + session.cart.totalPrice) / 100).toFixed(2); %></strong></td>
+          </tr>
+          <tr>
+            <td colspan="3" class="text-right">
+              <form method="POST" action="/cart">
+                <div style="margin-left: 1em;">
+                  <button class="btn btn-primary btn-lg" type="submit" style=" margin-left: 1em;">Place Order</button>
+                </div>
+              </form>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+      <% } %>
     </section>
-
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

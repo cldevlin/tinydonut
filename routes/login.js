@@ -15,7 +15,7 @@ const login = function (email, password) {
 module.exports = () => {
   router.get("/", (req, res) => {
     if (req.session.user_id) {
-      return res.redirect('/menu');
+      return res.redirect("/menu");
     }
     res.render("login");
   });
@@ -29,7 +29,10 @@ module.exports = () => {
           res.statusCode = 403;
           return res.send("<html><h1>Error: Wrong password</h1></html>");
         }
-        req.session.user_id = user.id;
+        req.session.user = {
+          id: user.id,
+          name: user.name,
+        };
         res.redirect("/menu");
       })
       .catch((e) => res.send(e));

@@ -2,14 +2,17 @@ const express = require("express");
 
 const router = express.Router();
 
-
 module.exports = (db) => {
   router.get("/", (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/login");
+    }
+
     db.query(`SELECT * FROM donuts;`)
       .then((data) => {
         const donuts = data.rows;
         // res.json({ donuts });
-        const templateVars = { donuts, user: req.session.user_id };  // STRETCH: use jquery to pass user object into templateVars
+        const templateVars = { donuts }; // STRETCH: use jquery to pass user object into templateVars
         res.render("menu", templateVars);
       })
       .catch((err) => {
@@ -23,6 +26,7 @@ module.exports = (db) => {
         items: {},
         totalQty: 0,
         totalPrice: 0,
+        taxes: 0,
       };
     }
 
@@ -34,10 +38,12 @@ module.exports = (db) => {
       };
       cart.totalQty = cart.totalQty + 1;
       cart.totalPrice = cart.totalPrice + req.body.price;
+      cart.taxes = Math.round(cart.totalPrice * 0.13);
     } else {
       cart.items[req.body.id].qty = cart.items[req.body.id].qty + 1;
       cart.totalQty = cart.totalQty + 1;
       cart.totalPrice = cart.totalPrice + req.body.price;
+      cart.taxes = Math.round(cart.totalPrice * 0.13);
     }
 
     res.json({ totalQty: req.session.cart.totalQty });
