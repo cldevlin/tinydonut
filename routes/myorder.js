@@ -16,6 +16,14 @@ module.exports = (db) => {
       body: `Your order will be ready in ${reply} minutes!`
     });
   };
+
+  const orderReady = (number) => {
+    client.messages.create({
+      to: `+1${number}`,
+      from: '+16474931524',
+      body: `Your order is ready for pickup`
+    });
+  };
   let reply;
   router.post('/', twilio.webhook({ validate: false }), function (req, res) {
     reply = req.body.Body;
@@ -27,6 +35,9 @@ module.exports = (db) => {
     db.query(`SELECT phone FROM users WHERE id=16;`)
       .then(data => {
         sendReply(reply, data.rows[0].phone);
+        setTimeout(() => {
+          orderReady(data.rows[0].phone);
+        }, Number(reply) * 60000);
       });
   });
 
