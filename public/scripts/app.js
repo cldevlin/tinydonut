@@ -20,8 +20,11 @@ $(document).ready(() => {
       updateCart(donut);
     });
   });
+// **************************************************************************************************
 
-  let i = 30
+
+
+  let i = 30;
   let time = new Date().getTime() + i;
   console.log("this is time!!!!! -------", date);
   let hours = date.getHours();
@@ -39,20 +42,6 @@ $(document).ready(() => {
 
   );
 
-  // $("#resetButton").click(function (e) {
-  //   i = 0;
-  // });
 
 
-
-  $.ajax({
-    method: "POST",
-    url: "/tweets",
-    data
-  }).then(function () {
-    $('#tweet-text').val("");
-    $('.counter').text(140);
-    $('#post-tweet').css("display", "none");
-    loadTweets(data);
-  });
 });

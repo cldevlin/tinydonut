@@ -6,5 +6,7 @@ CREATE TABLE orders (
   sub_total INTEGER NOT NULL DEFAULT 0,
   taxes INTEGER NOT NULL DEFAULT 0,
   total INTEGER NOT NULL DEFAULT 0,
-  placed_at TIMESTAMP
+  placed_at TIMESTAMP,
+  order_status INTEGER NOT NULL DEFAULT 0,
+  waiting_time INTEGER DEFAULT NULL
 );

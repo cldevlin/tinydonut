@@ -75,8 +75,9 @@
         </svg>
       </div>
     </div>
-
+    <% if (!status) { %>
     <div class="sending-message">Tiny Donut is processing your order</div>
+    <% }; %>
     <!-- **animation of three dots? -->
 
 
@@ -85,11 +86,12 @@
     <!-- once restaurant replies-- -->
 
     <div class="timer">
-      <p class="time">
-        <%= message.sid %>
-          Your order will be ready at <span class="time-ready">33</span>!
-      </p>
       <div id="timer">30</div>
+      <div id="reply">
+        <% if (status) { %>
+        Your order will be ready in <span class="time-ready"><%= waiting_time %> </span> minutes!
+        <% }; %>
+      </div>
 
       <!-- <button id="startButton">Start</button>
       <button id="resetButton">Reset</button> -->
