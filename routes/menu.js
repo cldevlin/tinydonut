@@ -1,14 +1,7 @@
 const express = require("express");
+
 const router = express.Router();
 
-// $(document).ready(function() {
-//   if ($(".new-tweet").prop("clientHeight") > 0) {
-//     $(".new-tweet").slideUp("fast", "linear");
-//   } else {
-//     $(".new-tweet").slideDown("fast", "linear");
-//     $("#tweet-text").focus();
-//   }
-// }
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
@@ -22,13 +15,33 @@ module.exports = (db) => {
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
-    // req.session['cakedonut'] = 'test';
-    // console.log(req.session);
   });
 
-  // router.post("/", (req, res) => {
-  //   res.status(200);
-  // });
+  router.post("/", (req, res) => {
+    if (!req.session.cart) {
+      req.session.cart = {
+        items: {},
+        totalQty: 0,
+        totalPrice: 0,
+      };
+    }
+
+    let cart = req.session.cart;
+    if (!cart.items[req.body.id]) {
+      cart.items[req.body.id] = {
+        item: req.body,
+        qty: 1,
+      };
+      cart.totalQty = cart.totalQty + 1;
+      cart.totalPrice = cart.totalPrice + req.body.price;
+    } else {
+      cart.items[req.body.id].qty = cart.items[req.body.id].qty + 1;
+      cart.totalQty = cart.totalQty + 1;
+      cart.totalPrice = cart.totalPrice + req.body.price;
+    }
+
+    res.json({ totalQty: req.session.cart.totalQty });
+  });
 
   return router;
 };
