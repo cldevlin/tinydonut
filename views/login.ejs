@@ -2,10 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>Login</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/login.css" type="text/css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -16,20 +17,27 @@
 </head>
 
 <body>
-  <div class="login">
-    <form action="/login" method="POST">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-
+  <div class="logo">
+    <img class="image-thumbnail" src="../public/images/donut-logo.png" alt="">
   </div>
+
+  <!-- THIS IS A TEST -->
+  <form action="/login" method="POST">
+    <div class="inputs">
+      <div class="mb-3">
+        <!-- <label for="exampleInputEmail1" class="form-label">Email address</label> -->
+        <input type="email" name="email" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="Email address">
+      </div>
+      <div class="mb-3">
+        <!-- <label for="exampleInputPassword1" class="form-label">Password</label> -->
+        <input type="password" name="password" id="exampleInputPassword1" placeholder="Password">
+      </div>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
+
+
   <p class="no_account">No Account? Please Register <a href="/register"> HERE</a></p>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

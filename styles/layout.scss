@@ -1,11 +1,21 @@
 // See: https://sass-lang.com/
 
+@import 'header';
+
+
 body {
   background-color: #eee;
 
   h1 {
     color: #244751;
   }
+}
+
+.items {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   padding: 20px;
 }
 
 .login {
