@@ -56,24 +56,20 @@ const menuRoutes = require("./routes/menu");
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
 const logoutRoute = require("./routes/logout");
-
 const smsRoute = require("./routes/myorder");
-// const sendSms = require("./routes/send-sms");
+const submitRoute = require("./routes/submit");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
-
-
 app.use("/api/menu", menuRoutes(db));
 app.use("/menu", menuRoutes(db));
-
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/logout", logoutRoute(db));
 app.use("/api/widgets", widgetsRoutes(db));
-
 app.use("/myorder", smsRoute(db));
+app.use("/submit", submitRoute(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -84,9 +80,6 @@ app.get("/", (req, res) => {
   res.redirect('/login');
 });
 
-// app.listen(PORT, () => {
-//   console.log(`Example app listening on port ${PORT}`);
-// });
 
 http.createServer(app).listen(PORT, () => console.log(`Example app listening on port ${PORT}`));
 
