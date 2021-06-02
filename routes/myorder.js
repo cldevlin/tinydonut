@@ -31,7 +31,7 @@ module.exports = (db) => {
         console.log(data.rows[0].user);
         sendToRestaurant(2899903232, data.rows[0].user, data.rows[0].donut, data.rows[0].quantity)
           .then(message => {
-            const templateVars = { message };
+            const templateVars = { message, user: req.session.user_id };
             res.render('myorder', templateVars);
           });
 
