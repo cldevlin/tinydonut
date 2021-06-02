@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const twilio = require('twilio');
-const client = require('twilio')(process.env.ACCOUNTSID ,process.env.AUTHTOKEN);
+const client = require('twilio')(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 const sendToRestaurant = require('../send-sms');
 
 
@@ -17,9 +17,9 @@ module.exports = (db) => {
     });
   };
   let reply;
-  router.post('/', twilio.webhook({validate: false}), function(req, res) {
+  router.post('/', twilio.webhook({ validate: false }), function (req, res) {
     reply = req.body.Body;
-    db.query(`SELECT phone FROM users WHERE id=17;`)
+    db.query(`SELECT phone FROM users WHERE id=16`)
       .then(data => {
         sendReply(reply, data.rows[0].phone);
       });
@@ -29,7 +29,7 @@ module.exports = (db) => {
     db.query(`SELECT donuts.name AS donut, users.name AS user, order_items.quantity FROM donuts JOIN order_items ON donuts.id= order_items.donut_id JOIN orders ON orders.id = order_items.order_id JOIN users ON orders.user_id = users.id WHERE orders.id = 5;`)
       .then(data => {
         console.log(data.rows[0].user);
-        sendToRestaurant(2899903232, data.rows[0].user, data.rows[0].donut, data.rows[0].quantity)
+        sendToRestaurant(5147998868, data.rows[0].user, data.rows[0].donut, data.rows[0].quantity)
           .then(message => {
             const templateVars = { message, user: req.session.user_id };
             res.render('myorder', templateVars);
