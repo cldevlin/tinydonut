@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/myorder.css" type="text/css" />
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -19,12 +20,90 @@
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
-  <script type="type/javascript" src="/scripts/client.js"></script>
+  <!-- <script type="type/javascript" src="/scripts/client.js"></script> -->
 </head>
 
 <body>
   <%- include('partials/_header') %>
-  <p class="time"><%= message.body %> </p>
+    <div class="centerer spinning-donut">
+      <div class="loader">
+        <svg class="circle" width="100%" height="100%" viewBox="0 0 100 100" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
+          style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+          <g transform="matrix(1.12721,0,0,1.12721,-10.6553,-8.83663)">
+            <circle class="five" cx="53.81" cy="52.197" r="41.235"
+              style="fill:none;stroke:#EEB169;stroke-width:54px;" />
+            <circle class="four" cx="53.81" cy="52.197" r="41.235"
+              style="fill:none;stroke:#F9C07E;stroke-width:48px;" />
+            <circle class="shape third" cx="53.81" cy="52.197" r="41.235"
+              style="fill:none;stroke:#FF77AB;stroke-width:40px;" />
+            <circle class="shape second" cx="53.81" cy="52.197" r="41.235"
+              style="fill:none;stroke:#FF88B6;stroke-width:32px;" />
+            <circle class="shape" cx="53.81" cy="52.197" r="41.235"
+              style="fill:none;stroke:#FFA3C7;stroke-width:20px;" />
+          </g>
+
+
+          <g class="sprinkles">
+            <g transform="matrix(0.880689,0,0,0.781406,7.17954,3.0091)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(214,255,248);stroke-width:3.67px;" />
+            </g>
+            <g transform="matrix(0.565116,-0.495346,0.488082,0.556828,-16.0143,40.9364)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(214,255,248);stroke-width:4.1px;" />
+            </g>
+            <g transform="matrix(-0.114708,-0.856509,0.485591,-0.0650328,31.1707,65.329)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(181,224,255);stroke-width:4.35px;" />
+            </g>
+            <g transform="matrix(-0.634108,-0.773245,0.773245,-0.634108,50.799,84.4915)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(214,255,248);stroke-width:3.06px;" />
+            </g>
+            <g transform="matrix(0.706566,0.104581,-0.0945152,0.638559,-6.893,22.4671)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(181,224,255);stroke-width:4.49px;" />
+            </g>
+            <g transform="matrix(0.442341,0.56081,-0.506832,0.399765,7.18433,16.9092)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(181,224,255);stroke-width:4.49px;" />
+            </g>
+            <g transform="matrix(-0.300318,-0.726729,0.419567,-0.173384,31.0991,111.687)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(214,255,248);stroke-width:4.76px;" />
+            </g>
+            <g transform="matrix(-0.385543,0.92269,-0.92269,-0.385543,58.6527,3.48096)">
+              <path d="M52.842,23.14L51.038,25.227" style="fill:none;stroke:rgb(214,255,248);stroke-width:3.06px;" />
+            </g>
+            <g transform="matrix(-0.615182,0.230872,-0.240077,-0.63971,64.6109,61.6168)">
+              <path d="M52.842,23.14L49.736,26.533" style="fill:none;stroke:rgb(214,255,248);stroke-width:4.56px;" />
+            </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="sending-message">Tiny Donut is processing your order</div>
+    <!-- **animation of three dots? -->
+
+
+
+
+    <!-- once restaurant replies-- -->
+
+    <div class="timer">
+      <p class="time">
+        <%= message.sid %>
+          Your order will be ready at <span class="time-ready">33</span>!
+      </p>
+      <div id="timer">30</div>
+
+      <!-- <button id="startButton">Start</button>
+      <button id="resetButton">Reset</button> -->
+    </div>
+
+
+    <div>Pick up your order at Random Ave </div>
+
+
+
+
+
+
+
 
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

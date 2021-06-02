@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const twilio = require('twilio');
-const client = require('twilio')(process.env.ACCOUNTSID ,process.env.AUTHTOKEN);
+const client = require('twilio')(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 const sendToRestaurant = require('../send-sms');
 
 
@@ -17,7 +17,7 @@ module.exports = (db) => {
     });
   };
   let reply;
-  router.post('/', twilio.webhook({validate: false}), function(req, res) {
+  router.post('/', twilio.webhook({ validate: false }), function (req, res) {
     reply = req.body.Body;
     console.log(reply);
     db.query(`SELECT phone FROM users WHERE id=18;`)
