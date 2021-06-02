@@ -1,4 +1,6 @@
 $(document).ready(() => {
+  // Add to cart logic
+
   let addToCart = document.querySelectorAll(".card-footer > button");
   let cartCounter = document.querySelector("#cart-counter");
   const updateCart = function (donut) {

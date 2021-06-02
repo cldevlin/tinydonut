@@ -7,8 +7,8 @@ const ENV = process.env.ENV || "development";
 const express = require("express");
 const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
-const cookieSession = require('cookie-session');
-const http = require('http');
+const cookieSession = require("cookie-session");
+const http = require("http");
 const app = express();
 const morgan = require("morgan");
 
@@ -56,23 +56,19 @@ const menuRoutes = require("./routes/menu");
 const loginRoute = require("./routes/login");
 const registerRoute = require("./routes/register");
 const logoutRoute = require("./routes/logout");
-
+const cartRoute = require("./routes/cart");
 const smsRoute = require("./routes/myorder");
 // const sendSms = require("./routes/send-sms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
-
-
-app.use("/api/menu", menuRoutes(db));
-app.use("/menu", menuRoutes(db));
 
 app.use("/login", loginRoute(db));
 app.use("/register", registerRoute(db));
 app.use("/logout", logoutRoute(db));
 app.use("/api/widgets", widgetsRoutes(db));
-
+app.use("/cart", cartRoute(db));
+app.use("/menu", menuRoutes(db));
 app.use("/myorder", smsRoute(db));
 
 // Note: mount other resources here, using the same pattern above
@@ -81,12 +77,13 @@ app.use("/myorder", smsRoute(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.redirect('/login');
+  res.redirect("/login");
 });
 
 // app.listen(PORT, () => {
 //   console.log(`Example app listening on port ${PORT}`);
 // });
 
-http.createServer(app).listen(PORT, () => console.log(`Example app listening on port ${PORT}`));
-
+http
+  .createServer(app)
+  .listen(PORT, () => console.log(`Example app listening on port ${PORT}`));
