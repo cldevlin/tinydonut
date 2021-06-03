@@ -3,7 +3,6 @@
 
 <head>
   <title>Menu Page</title>
-  <img src="" alt="">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -30,25 +29,27 @@
 
 <body>
   <%- include('partials/_header') %>
-    <h1>Donuts</h1>
 
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Donuts</h1>
+    <p class="fs-5 text-muted">ORIGINAL DELICIOUSNESS, SINCE 1994</p>
+  </div>
 
-    <section class="container">
-      <div class="row gap-3">
+  <section class="container mx-auto">
+      <div class="row row-cols-md-3">
         <% for(let donut of donuts) { %>
-        <div class="col-md-4 gap-3">
+        <div class="col-md-4">
           <div class="card h-100">
             <div class="inner">
               <img src="<%= donut.thumbnail_photo_url %>" class="rounded mx-auto d-block card-img-top" alt="<%= donut.name %>">
             </div>
             <div class="card-body">
-              <h5 class="card-title"><%= donut.name %></h5>
-              <p class="card-text"><%= donut.description %></p>
+              <h4 class="card-title"><%= donut.name %></h4>
+              <p class="card-text"><small><%= donut.description %></small></p>
             </div>
-            <div class="card-footer d-flex justify-content-between">
-
-              <p class="card-text"><em>$<%= donut.price/100 %></em></p>
-              <button data-donut="<%= JSON.stringify(donut) %>" type="button" class="add-to-cart btn btn-primary">Add</button>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+              <span>$<%= donut.price/100 %></span>
+              <button data-donut="<%= JSON.stringify(donut) %>" type="button" class="add-to-cart btn btn-dark py-1 px-6 font-bold">Add</button>
             </div>
           </div>
         </div>

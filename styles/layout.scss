@@ -9,6 +9,7 @@ body {
   h1 {
     color: #244751;
   }
+
 }
 
 .items {
@@ -36,9 +37,9 @@ body {
 }
 
 .inner img {
-  transition: all 1.5s;
+  transition: all 0.25s;
 }
 
 .inner:hover img {
-  transform: scale(1.5);
+  transform: scale(1.25);
 }

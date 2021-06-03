@@ -32,6 +32,7 @@ module.exports = () => {
         req.session.user = {
           id: user.id,
           name: user.name,
+          photo_url: user.photo_url,
         };
         res.redirect("/menu");
       })

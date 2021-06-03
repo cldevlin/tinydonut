@@ -49,3 +49,4 @@ https://www.doughnutplant.com/ (Donut name and description)
 https://www.mockaroo.com/ (Dummy user data)
 https://www.pexels.com/ 
 https://randomuser.me/ (Dummy users photo)
+https://commons.wikimedia.org/wiki/File:Donut8.jpg (donut user avtar)

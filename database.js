@@ -1,13 +1,12 @@
-const { Pool } = require('pg');
+const { Pool } = require("pg");
 
 const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   host: process.env.DB_HOST,
   database: process.env.DB_NAME,
-  port: process.env.DB_PORT
+  port: process.env.DB_PORT,
 });
-
 
 /// Users
 /**
@@ -15,12 +14,11 @@ const pool = new Pool({
  * @param {String} email The email of the user.
  * @return {Promise<{}>} A promise to the user.
  */
-const getUserWithEmail = function(email) {
+const getUserWithEmail = function (email) {
   const queryString = `SELECT id, name, email, password FROM users WHERE email = $1;`;
-  return pool.query(queryString, [email])
-    .then((result) => {
-      return result.rows[0];
-    });
+  return pool.query(queryString, [email]).then((result) => {
+    return result.rows[0];
+  });
 };
 exports.getUserWithEmail = getUserWithEmail;
 
@@ -29,9 +27,16 @@ exports.getUserWithEmail = getUserWithEmail;
  * @param {{name: string, password: string, email: string}} user
  * @return {Promise<{}>} A promise to the user.
  */
-const addUser =  function(user) {
+const addUser = function (user) {
   const queryString = `INSERT INTO users (name, email, phone, password, photo_url, created_at) VALUES ($1, $2, $3, $4, $5, NOW()) RETURNING *;`;
-  return pool.query(queryString, [user.name, user.email, user.phone, user.password, ''])
+  return pool
+    .query(queryString, [
+      user.name,
+      user.email,
+      user.phone,
+      user.password,
+      "https://upload.wikimedia.org/wikipedia/commons/d/dd/Donut8.jpg",
+    ])
     .then((result) => {
       return result.rows[0];
     });
@@ -111,7 +116,6 @@ exports.addUser = addUser;
 //   return pool.query(queryString, queryParams).then((res) => res.rows);
 // }
 // exports.getAllProperties = getAllProperties;
-
 
 // /**
 //  * Add a property to the database

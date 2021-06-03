@@ -1,39 +1,43 @@
 <header class="page-header">
-  <nav class="navbar navbar-expand-md navbar-dark">
-    <a class="navbar-brand" href="/">TinyDonut</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- shopping cart button -->
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffbdbd;">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="/menu">Menu</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/cart"><i class="bi bi-cart4" id="cart-counter"> <%= session.cart ? session.cart.totalQty : ''; %> </i></a>
-          </li>
         </ul>
-      </div>
     </div>
-
-    <div class="nav navbar-nav float-md-right flex-row">
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="/"><h1 class="display-5">TinyDonut</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <% if (session.user) { %>
-        <form class="form-inline" method="POST" action="/logout">
-          <div style="margin-left: 1em;">
-            Logged in as: <%= session.user.name %><button class="btn btn-outline-dark" type="submit"
-                style=" margin-left: 1em;">Logout</button>
-          </div>
-        </form>
-        <% } %>
-
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item px-4 ">
+              <a class="nav-link" href="/cart">
+                <span class="cartCounter badge badge-pill badge-notification bg-light"><%= session.cart ? session.cart.totalQty : ''; %> <i class="bi bi-cart-fill"></i></span>
+              </a>
+            </li>
+            <li class="nav-item px-4 d-flex align-items-center" >
+              <div class="dropdown">
+                <a class="dropdown-toggle d-flex align-items-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <img src="<%=session.user.photo_url%>" class="rounded-circle" height="25" alt="" loading="lazy"
+                    />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                  <h6 class="dropdown-header"><%= session.user.name %></h6>
+                  <a class="dropdown-item" href="#">My Order</a>
+                  <form class="d-flex" method="POST" action="/logout">
+                    <button class="dropdown-item" type="submit">Logout</button>
+                  </form>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <% } %>
     </div>
-
-
-
-  </nav>
-
+</nav>
 </header>
