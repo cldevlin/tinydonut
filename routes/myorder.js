@@ -5,9 +5,8 @@ const twilio = require('twilio');
 const { sendReply, orderReady } = require('../send-sms');
 
 
-
-
 module.exports = (db) => {
+  // twilio post request and sms logic
   router.post('/', twilio.webhook({ validate: false }), function (req, res) {
     let reply = req.body.Body;
     const array = reply.split(' ');
@@ -35,7 +34,11 @@ module.exports = (db) => {
       });
   });
 
+  // render myorder page with order infromation and waiting time
   router.get("/", (req, res) => {
+    if (!req.session.user) {
+      res.redirect("/login");
+    }
     db.query(`SELECT donuts.name AS donut, users.name AS user, order_items.quantity, orders.order_status, orders.waiting_time FROM donuts JOIN order_items ON donuts.id= order_items.donut_id JOIN orders ON orders.id = order_items.order_id JOIN users ON orders.user_id = users.id WHERE users.id = ${req.session.user.id};`)
       .then(data => {
         console.log(data.rows[0].waiting_time, data.rows[0].order_status);
