@@ -2,6 +2,18 @@ body{
 	background-color: #FFFCEB;
 }
 
+.sending-message {
+  // visibility: hidden;
+}
+
+.timer {
+  // visibility: hidden;
+}
+
+
+
+
+// spinning donut
 .centerer {
 	position: absolute;
 	top: 50%;
@@ -87,13 +99,5 @@ body{
 	100% {
 		transform: rotate(360deg);
 	}
-}
-
-.sending-message {
-  // visibility: hidden;
-}
-
-.timer {
-  // visibility: hidden;
 }
 

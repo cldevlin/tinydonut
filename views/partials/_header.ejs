@@ -1,36 +1,33 @@
 <header class="page-header">
-  <nav class="navbar navbar-expand-md navbar-dark">
+
+  <nav class="navbar navbar-expand-md navbar-light">
     <a class="navbar-brand" href="/">TinyDonut</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+      aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- shopping cart button -->
-
-        <a><i class="bi bi-cart-fill" id="cart-counter"><%= session.cart ? session.cart.totalQty : ''; %> </i></a>
-
-      </div>
-      <span id="user_span" class="navbar-text">
-
-      </span>
-    </div>
-
-    <div class="nav navbar-nav float-md-right flex-row">
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/menu">Menu</a>
+        </li>
+      </ul>
       <% if (user) { %>
-        <form class="form-inline" method="POST" action="/logout">
-          <div style="margin-left: 1em;">
-            Logged in as: <%= user %><button class="btn btn-outline-dark" type="submit"
-                style=" margin-left: 1em;">Logout</button>
+        <div class="nav-item" id="current-user">
+          <!-- "Logged in as..." -->
+          <span id="user_span" class="navbar-text">Logged in as: <%= user %></span>
+        </div>
+        <form class="form-inline logout" method="POST" action="/logout">
+          <div>
+            <button class="btn btn-outline-dark" type="submit" id="logout-button">Logout</button>
           </div>
         </form>
         <% } %>
-
+          <a class="my-cart navbarNar" href="/cart"><i class="bi bi-cart-fill" id="cart-counter">
+              <%= session.cart ? session.cart.totalQty : '' ; %>
+            </i></a>
     </div>
-
-
-
   </nav>
+
 
 </header>

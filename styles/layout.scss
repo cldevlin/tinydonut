@@ -1,11 +1,19 @@
 // See: https://sass-lang.com/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
 @import 'header';
 
 
 body {
   background-color: #eee;
-
+  margin-top: 60px;
+  // margin: 0;
+  // padding: 0;
   h1 {
     color: #244751;
   }
