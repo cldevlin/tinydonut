@@ -1,18 +1,18 @@
 require('dotenv').config();
 const client = require('twilio')(process.env.ACCOUNTSID, process.env.AUTHTOKEN);
 
-const sendToRestaurant = (number, name, sms) => {
+const sendToRestaurant = (number, name, email, sms) => {
   return client.messages.create({
     to: `+1${number}`,
     from: '+16474931524',
-    body: `Order for ${name}: ${sms}`,
+    body: `Order for ${name} (${email}): ${sms}`,
   });
 };
-const sendReply = (reply, number) => {
+const sendReply = (name,time, number) => {
   client.messages.create({
     to: `+1${number}`,
     from: '+16474931524',
-    body: `Your order will be ready in ${reply} minutes!`
+    body: `${name}! Your order will be ready in ${time} minutes! Hurry!`
   });
 };
 

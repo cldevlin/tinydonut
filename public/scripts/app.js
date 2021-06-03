@@ -1,6 +1,5 @@
 $(document).ready(() => {
   // Add to cart logic
-
   let addToCart = document.querySelectorAll(".card-footer > button");
   let cartCounter = document.querySelector("#cart-counter");
   const updateCart = function (donut) {
@@ -26,23 +25,23 @@ $(document).ready(() => {
 
 
 
-  // let i = 30;
-  // let time = new Date().getTime() + i;
-  // console.log("this is time!!!!! -------", date);
-  // let hours = date.getHours();
-  // let minutes = date.getMinutes();
+  let i = 30;
+  let time = new Date().getTime() + i;
+  console.log("this is time!!!!! -------", time);
+  let hours = time.getHours();
+  let minutes = time.getMinutes();
 
-  // $('.time-ready').html(hours + ':' + minutes);
+  $('.time-ready').html(hours + ':' + minutes);
 
-  // //fix this so that it doesn't reset if you refresh the page
-  // $('body').load(
+  //fix this so that it doesn't reset if you refresh the page
+  $('body').load(
 
-  //   setInterval(function () {
-  //     $("#timer").html(i);
-  //     i--;
-  //   }, 1000)
+    setInterval(function () {
+      $("#timer").html(i);
+      i--;
+    }, 1000)
 
-  // );
+  );
 
 
 
