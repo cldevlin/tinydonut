@@ -11,7 +11,6 @@ module.exports = (db) => {
     db.query(`SELECT * FROM donuts;`)
       .then((data) => {
         const donuts = data.rows;
-        // res.json({ donuts });
         const templateVars = { donuts }; // STRETCH: use jquery to pass user object into templateVars
         res.render("menu", templateVars);
       })
