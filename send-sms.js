@@ -5,7 +5,8 @@ const sendToRestaurant = (number, name, sms) => {
   return client.messages.create({
     to: `+1${number}`,
     from: '+16474931524',
-    body: `Order for ${name}: ${sms}`
+    body: `Order for ${name}: ${sms}`,
+    uri: 'THIS IS A ORDER NO'
   });
 };
 const sendReply = (reply, number) => {

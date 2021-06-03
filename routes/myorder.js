@@ -10,9 +10,10 @@ const { sendReply, orderReady } = require('../send-sms');
 module.exports = (db) => {
 
   router.post('/', twilio.webhook({ validate: false }), function (req, res) {
+    console.log(req);
     let reply = req.body.Body;
-    db.query(`UPDATE orders SET order_status=1, waiting_time=${reply} WHERE id=4;`);
-    db.query(`SELECT phone FROM users WHERE id=16;`)
+    db.query(`UPDATE orders SET order_status=1, waiting_time=${reply} WHERE user_id = $1;`, [req.session.user.id]);
+    db.query(`SELECT phone FROM users WHERE id=$1;`, [req.session.user.id])
       .then(data => {
         sendReply(reply, data.rows[0].phone);
         setTimeout(() => {
