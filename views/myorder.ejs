@@ -75,47 +75,48 @@
       </div>
     </div>
     <% if (!status) { %>
-    <div class="sending-message">Tiny Donut is processing your order</div>
-    <% }; %>
-    <!-- **animation of three dots? -->
+      <div class="sending-message">Tiny Donut is processing your order</div>
+      <% }; %>
+        <!-- **animation of three dots? -->
 
 
 
 
-    <!-- once restaurant replies-- -->
+        <!-- once restaurant replies-- -->
 
-    <div class="timer">
-      <div id="timer">30</div>
-      <div id="reply">
-        <% if (status) { %>
-        Your order will be ready in <span class="time-ready"><%= waiting_time %> </span> minutes!
-        <% }; %>
-      </div>
-
-      <!-- <button id="startButton">Start</button>
-      <button id="resetButton">Reset</button> -->
-    </div>
-
-
-    <div>Pick up your order at Random Ave </div>
+        <div class="timer">
+          <div id="timer">66</div>
+          <div id="reply">
+            <% if (true) { %>
+              Your order will take
+              <span class="waiting-time">
+                <%= waiting_time %>
+              </span>
+              minutes to prepare! Ready in: <span class="time-ready"></span>
+              <% }; %>
+          </div>
+        </div>
 
 
-
+        <div>Pick up your order at Random Ave </div>
 
 
 
 
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+
+
+
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+          integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+          integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+          crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+          integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+          crossorigin="anonymous"></script>
 </body>
 
 </html>
