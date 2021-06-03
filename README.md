@@ -41,6 +41,16 @@ The following steps are only for _one_ of the group members to perform.
 - Node 10.x or above
 - NPM 5.x or above
 - PG 6.x
+- body-parser
+- cookie-session
+- dotenv
+- ejs
+- Express
+- morgan
+- Ngrok
+- node-sass-middleware
+- Twilio
+
 
 ## Notes
 
@@ -50,3 +60,5 @@ https://www.mockaroo.com/ (Dummy user data)
 https://www.pexels.com/ 
 https://randomuser.me/ (Dummy users photo)
 https://commons.wikimedia.org/wiki/File:Donut8.jpg (donut user avtar)
+https://wikiclipart.com/wp-content/uploads/2016/09/Cartoon-donut-clipart-free-clip-art-images-image.jpg (logo)
+https://www.freepnglogos.com/uploads/donut-png/donut-doughnut-dash-the-davis-dirt-8.png (bitten donut logo)
