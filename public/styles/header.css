@@ -1,0 +1,28 @@
+.page-header {
+  background-color: #FFBDBD;
+}
+
+.page-header nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  height: 60px;
+  padding: 0em 1.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/*# sourceMappingURL=header.css.map */
