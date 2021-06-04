@@ -67,7 +67,7 @@ module.exports = (db) => {
             for (let i of data.rows) {
               sms += (`${i.donut} -> ${i.quantity} \n`);
             }
-            return sendToRestaurant(3069870209, data.rows[0].user, data.rows[0].email, sms);
+            return sendToRestaurant(2899903232, data.rows[0].user, data.rows[0].email, sms);
           });
 
 
