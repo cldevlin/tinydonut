@@ -33,11 +33,14 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">
-              <% if (true) { %>
+
+              <% if (waiting_time) { %>
                 Your order will take <span id="waiting-time">
                   <%= waiting_time %>
                 </span> minutes to prepare! <span class="time-ready"></span>
-                <% }; %>
+                <% } else { %>
+                  <span>Waiting for restaurant response...</span>
+                  <% } %>
             </h5>
           </div>
           <div class="card-footer">

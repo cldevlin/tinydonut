@@ -1,25 +1,25 @@
-const getPickupTime = function (timeEstimateInMinutes) {
-  // const seconds = Math.floor( (total/1000) % 60 );
-  // let pickupTime = new Date().getTime() + (timeEstimateInMinutes * 60 * 1000);
-  console.log("timeEstimateInMinutes", timeEstimateInMinutes);
-  let nowDate = Date.now();
-  console.log("nowDate", nowDate, new Date(nowDate));
-  let pikDate = nowDate + timeEstimateInMinutes * 60 * 1000;
-  console.log("pikDate", pikDate, new Date(pikDate));
-  let pickupTime = new Date(Date.now() + timeEstimateInMinutes * 60 * 1000);
+// const getPickupTime = function (timeEstimateInMinutes) {
+//   // const seconds = Math.floor( (total/1000) % 60 );
+//   // let pickupTime = new Date().getTime() + (timeEstimateInMinutes * 60 * 1000);
+//   console.log("timeEstimateInMinutes", timeEstimateInMinutes);
+//   let nowDate = Date.now();
+//   console.log("nowDate", nowDate, new Date(nowDate));
+//   let pikDate = nowDate + timeEstimateInMinutes * 60 * 1000;
+//   console.log("pikDate", pikDate, new Date(pikDate));
+//   let pickupTime = new Date(Date.now() + timeEstimateInMinutes * 60 * 1000);
 
-  console.log("pickupTime", pickupTime);
-  const minutes = timeEstimateInMinutes % 60;
-  const hours = Math.floor(timeEstimateInMinutes / 60);
-  console.log("-------------");
-  console.log(pickupTime, minutes, hours);
-  return {
-    pickupTime,
-    hours,
-    minutes,
-    seconds: 0,
-  };
-};
+//   console.log("pickupTime", pickupTime);
+//   const minutes = timeEstimateInMinutes % 60;
+//   const hours = Math.floor(timeEstimateInMinutes / 60);
+//   console.log("-------------");
+//   console.log(pickupTime, minutes, hours);
+//   return {
+//     pickupTime,
+//     hours,
+//     minutes,
+//     seconds: 0,
+//   };
+// };
 
 $(document).ready(() => {
   // Add to cart logic
@@ -72,13 +72,18 @@ $(document).ready(() => {
     clearCart();
   });
 
-  if (document.querySelector("#waiting-time")) {
-    if (!$(".waiting-time").innerText) {
+  // $('body').load(() => {
 
-      $(".time-ready").html("Waiting for restaurant response.")
-    } else {
+  // });
+
+  if (document.querySelector("#waiting-time")) {
+    // if (!$(".waiting-time").innerText) {
+
+    //   // $(".time-ready").html("Waiting for restaurant response.");
+    // } else {
+
       let counter = document.querySelector("#waiting-time").innerHTML;
-      // console.log("this is counter", counter);
+      console.log("this is counter", counter);
       // const timeInfo = getPickupTime(counter);
 
       let i = counter * 60;
@@ -100,6 +105,8 @@ $(document).ready(() => {
       }, 1000);
 
 
-    }
+    // }
   }
+
+
 });
