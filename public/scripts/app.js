@@ -33,7 +33,7 @@ $(document).ready(() => {
       new Noty({
         theme: "nest",
         type: "success",
-        text: "Cart emptied",
+        text: "Donut added to cart 🍩",
         timeout: 1000,
         layout: "bottomRight",
         progressBar: false,
@@ -60,7 +60,7 @@ $(document).ready(() => {
       new Noty({
         theme: "nest",
         type: "success",
-        text: "Donut added to cart",
+        text: "Cart emptied 🛒",
         timeout: 1000,
         layout: "bottomRight",
         progressBar: false,
