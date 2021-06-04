@@ -1,8 +1,8 @@
 node_modules/
-public/styles
 .env
 *.log
 *.sqlite3
 .DS_Store
 db/.DS_Store
 public/.DS_Store
+
