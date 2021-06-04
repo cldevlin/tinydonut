@@ -39,14 +39,24 @@ module.exports = (db) => {
     if (!req.session.user) {
       res.redirect("/login");
     }
-    db.query(`SELECT donuts.name AS donut, users.name AS user, order_items.quantity, orders.order_status, orders.waiting_time FROM donuts JOIN order_items ON donuts.id= order_items.donut_id JOIN orders ON orders.id = order_items.order_id JOIN users ON orders.user_id = users.id WHERE users.id = ${req.session.user.id};`)
-      .then(data => {
-        console.log(data.rows[0].waiting_time, data.rows[0].order_status);
-        const templateVars = {user: req.session.user.id, waiting_time: data.rows[0].waiting_time, status: data.rows[0].order_status };
-        res.render('myorder', templateVars);
-      });
+
+    db.query(
+      `SELECT orders.*, count(order_items.*) AS quantity
+    FROM orders
+    JOIN order_items ON order_items.order_id = orders.id
+    WHERE orders.user_id = $1
+    GROUP BY orders.id
+    ORDER BY orders.id DESC;`,
+      [req.session.user.id]
+    ).then((orders) => {
+      const templateVars = {
+        order_no: orders.rows[0].order_no,
+        waiting_time: orders.rows[0].waiting_time,
+        status: orders.rows[0].order_status,
+        data: orders.rows,
+      };
+      res.render("myorder", templateVars);
+    });
   });
   return router;
 };
-
-
