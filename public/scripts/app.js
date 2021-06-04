@@ -33,7 +33,7 @@ $(document).ready(() => {
       new Noty({
         theme: "nest",
         type: "success",
-        text: "Donut added to cart",
+        text: "Cart emptied",
         timeout: 1000,
         layout: "bottomRight",
         progressBar: false,
@@ -73,25 +73,33 @@ $(document).ready(() => {
   });
 
   if (document.querySelector("#waiting-time")) {
-    let counter = document.querySelector("#waiting-time").innerHTML;
-    // console.log("this is counter", counter);
-    // const timeInfo = getPickupTime(counter);
+    if (!$(".waiting-time").innerText) {
 
-    let i = counter * 60;
+      $(".time-ready").html("Waiting for restaurant response.")
+    } else {
+      let counter = document.querySelector("#waiting-time").innerHTML;
+      // console.log("this is counter", counter);
+      // const timeInfo = getPickupTime(counter);
 
-    const myInterval = setInterval(() => {
-      console.log(i);
-      if (i <= 0) {
-        clearInterval(myInterval);
-        $(".time-ready").html("00:00");
-        return;
-      }
-      let seconds = i % 60;
-      let minutes;
-      i > 59 ? (minutes = (i - seconds) / 60) : (minutes = 0);
+      let i = counter * 60;
 
-      $(".time-ready").html(minutes + ":" + String(seconds).padStart(2, "0"));
-      i--;
-    }, 1000);
+      const myInterval = setInterval(() => {
+
+        console.log(i);
+        if (i <= 0) {
+          clearInterval(myInterval);
+          $(".time-ready").html("");
+          return;
+        }
+        let seconds = i % 60;
+        let minutes;
+        i > 59 ? (minutes = (i - seconds) / 60) : (minutes = 0);
+
+        $(".time-ready").html("Ready in: " + minutes + ":" + String(seconds).padStart(2, "0"));
+        i--;
+      }, 1000);
+
+
+    }
   }
 });
