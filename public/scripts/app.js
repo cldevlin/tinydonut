@@ -74,8 +74,8 @@ $(document).ready(() => {
 
   if (document.querySelector("#waiting-time")) {
     let counter = document.querySelector("#waiting-time").innerHTML;
-    console.log("this is counter", counter);
-    const timeInfo = getPickupTime(counter);
+    // console.log("this is counter", counter);
+    // const timeInfo = getPickupTime(counter);
 
     let i = counter * 60;
 
